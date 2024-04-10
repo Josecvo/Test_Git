@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Agenda</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .agenda {
+      width: 80%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .agenda-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    .agenda-days {
+      display: flex;
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+    .agenda-day {
+      width: 14%;
+      text-align: center;
+    }
+    .agenda-content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+    .agenda-item {
+      width: 14%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 5px;
+      box-sizing: border-box;
+    }
+    .agenda-item:hover {
+      background-color: #f2f2f2;
+    }
+    .agenda-item.today {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="agenda">
+    <div class="agenda-header">
+      <h1>Weekly Agenda</h1>
+    </div>
+    <div class="agenda-days">
+      <div class="agenda-day">Mon</div>
+      <div class="agenda-day">Tue</div>
+      <div class="agenda-day">Wed</div>
+      <div class="agenda-day">Thu</div>
+      <div class="agenda-day">Fri</div>
+      <div class="agenda-day">Sat</div>
+      <div class="agenda-day">Sun</div>
+    </div>
+    <div class="agenda-content">
+      <!-- Agenda items go here -->
+      <div class="agenda-item today">
+        <h2>Today</h2>
+        <p>April 9, 2024</p>
+      </div>
+      <!-- Add more agenda items as needed -->
+    </div>
+  </div>
+  <style>
+    .panic-button {
+      background-color: #f00;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .panic-button:hover {
+      background-color: #c00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Panic Button</h1>
+  <p>Click the button below to call emergencies.</p>
+  <button class="panic-button" onclick="callEmergencies()">Call Emergencies</button>
+
+  <script>
+    function callEmergencies() {
+      // Replace '112' with the emergency number for your country
+      const emergencyNumber = '112';
+      const url = `tel:${emergencyNumber}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
+</body>
+</html>

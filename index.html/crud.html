@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRUD Example</title>
+</head>
+<body>
+
+<h2>QUE TE GUSTARIA HACER HOY</h2>
+
+<!-- Form for creating a new item -->
+<form id="create-form">
+  <label for="new-item">Pon lo que tu quieras:</label>
+  <input type="text" id="new-item" name="new-item">
+  <button type="submit">Create</button>
+</form>
+
+<!-- Table to display existing items -->
+<table id="item-table">
+  <thead>
+    <tr>
+      <th>Lista de que </th>
+      <th>es lo que </th>
+      <th>te gustaria hacer</th>
+    </tr>
+  </thead>
+  <tbody id="item-list">
+    <!-- Existing items will be added here -->
+  </tbody>
+</table>
+
+<script>
+// Sample data
+let items = [];
+
+// Function to render items in the table
+function renderItems() {
+  const itemList = document.getElementById("item-list");
+  itemList.innerHTML = "";
+  items.forEach((item, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${item}</td>
+      <td>
+        <button onclick="editItem(${index})">Edit</button>
+        <button onclick="deleteItem(${index})">Delete</button>
+      </td>
+    `;
+    itemList.appendChild(row);
+  });
+}
+
+// Function to handle form submission for creating new item
+document.getElementById("create-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const newItemInput = document.getElementById("new-item");
+  const newItemValue = newItemInput.value.trim();
+  if (newItemValue !== "") {
+    items.push(newItemValue);
+    newItemInput.value = "";
+    renderItems();
+  }
+});
+
+// Function to handle editing an existing item
+function editItem(index) {
+  const newItemValue = prompt("Edit item:", items[index]);
+  if (newItemValue !== null) {
+    items[index] = newItemValue.trim();
+    renderItems();
+  }
+}
+
+// Function to handle deleting an existing item
+function deleteItem(index) {
+  if (confirm("Are you sure you want to delete this item?")) {
+    items.splice(index, 1);
+    renderItems();
+  }
+}
+
+// Initial rendering
+renderItems();
+</script>
+
+</body>
+</html>
